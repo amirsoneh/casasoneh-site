@@ -1,200 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CASASONE — Furniture & Interiors</title>
-  <meta name="description" content="CASASONE • Furniture & Interiors. Get in touch for enquiries." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Elegant serif + crisp sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>CASASONEH</title>
   <style>
-    :root{
-      --bg:#101010;           /* page surround */
-      --paper:#efefef;        /* main content background */
-      --ink:#1f1f1f;
-      --muted:#6c6c6c;
-      --olive:#6a6a3a;        /* headline accent similar to reference */
-      --brand:#191919;
-      --border:#e4e4e4;
-      --accent:#0a0a0a;
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.ibb.co/ZJgVt4C/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
     }
-
-    /* Reset-ish */
-    *,*::before,*::after{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    h1 {
+      font-size: 80px;
+      font-weight: 900;
+      color: black;
+      letter-spacing: 2px;
     }
-
-    /* ---------- Preloader ---------- */
-    .loader{
-      position:fixed; inset:0; background:var(--paper); z-index:9999;
-      display:grid; place-items:center;
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #444;
+      text-align: center;
     }
-    .loader__inner{
-      display:flex; align-items:center; gap:14px;
-      letter-spacing:.2em; text-transform:uppercase; color:var(--brand);
+    a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background:var(--olive); animation:bounce .9s ease-in-out infinite;
-    }
-    @keyframes bounce{
-      0%,100%{ transform:translateY(0) }
-      50%{ transform:translateY(-8px) }
-    }
-    body.ready .loader{ opacity:0; pointer-events:none; transition:opacity .5s ease .1s; }
-
-    /* ---------- Layout ---------- */
-    .frame{
-      min-height:100svh; display:grid; place-items:center; padding:28px;
-    }
-    .card{
-      width:min(1200px,100%); height:clamp(640px,78vh,820px);
-      background:var(--paper); border-radius:8px; overflow:hidden;
-      display:grid; grid-template-columns: 1fr 1.15fr;
-      box-shadow:0 10px 40px rgba(0,0,0,.25);
-    }
-    /* Left (image) */
-    .media{
-      background:#d8d6d3 url("https://images.unsplash.com/photo-1582582621955-6e8f0b1ad7e8?q=80&w=1400&auto=format&fit=crop") center/cover no-repeat;
-    }
-    /* Right (content) */
-    .content{
-      display:grid; grid-template-rows:auto 1fr auto; padding:38px clamp(34px,4vw,64px);
-      position:relative;
-    }
-
-    /* Minimal top bar with only working link if needed later */
-    .topline{
-      display:flex; justify-content:flex-end; gap:18px; font-size:14px;
-      color:var(--muted);
-    }
-
-    .brand{
-      margin-top:clamp(12px,2vw,22px);
-    }
-    .brand h1{
-      font-family:"Cormorant Garamond", serif;
-      font-weight:600;
-      line-height:.92;
-      font-size:clamp(42px,7.2vw,92px);
-      letter-spacing:.01em;
-      color:var(--olive);
-      margin:0 0 12px 0;
-    }
-    .brand .tag{
-      font-family:"Cormorant Garamond", serif;
-      font-size:18px; letter-spacing:.02em; color:#7a7a7a;
-      margin-left:6px;
-    }
-
-    .teaser{
-      display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:start;
-      margin-top:26px;
-    }
-    .teaser .shot{
-      width:120px; aspect-ratio:1/1; border:1px solid var(--border); background:#fff;
-      display:grid; place-items:center; font-size:12px; color:var(--muted);
-      overflow:hidden;
-    }
-    .teaser .copy{
-      font-size:15px; line-height:1.6; color:#3a3a3a;
-    }
-
-    .cta-row{
-      margin-top:26px; display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .btn{
-      appearance:none; border:1px solid var(--ink); background:#fff; color:var(--ink);
-      padding:12px 16px; border-radius:6px; font-size:14px; cursor:pointer;
-      transition:all .2s ease; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn:hover{ background:var(--ink); color:#fff; }
-    .btn.alt{
-      border-color:var(--olive); color:#fff; background:var(--olive);
-    }
-    .btn.alt:hover{ filter:brightness(.92); }
-
-    .footer{
-      display:flex; justify-content:space-between; align-items:center;
-      gap:16px; padding-top:22px; border-top:1px solid var(--border); margin-top:auto;
-      font-size:13px; color:var(--muted);
-    }
-    .contact{
-      display:flex; gap:16px; flex-wrap:wrap;
-    }
-    .contact a{ color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
-    .contact a:hover{ border-color:var(--accent); }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 980px){
-      .card{ grid-template-columns:1fr; height:auto; }
-      .media{ height:42vh; }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- Preloader -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader__inner">
-      <div class="dot"></div>
-      <div>CASASONE</div>
-    </div>
+  <div>
+    <h1>CASASONEH</h1>
+    <p>
+      <a href="mailto:info@casasoneh.com">info@casasoneh.com</a><br>
+      Perth, Australia
+    </p>
   </div>
-
-  <main class="frame">
-    <section class="card" aria-label="CASASONE landing">
-      <aside class="media" role="img" aria-label="Furniture setting"></aside>
-
-      <div class="content">
-        <div class="topline"></div>
-
-        <div class="brand">
-          <h1>ENTRE<br>COEUR</h1>
-          <div class="tag">CASASONE — furniture & interiors</div>
-
-          <div class="teaser">
-            <div class="shot">
-              <!-- tiny preview image (can be replaced) -->
-              <img src="https://images.unsplash.com/photo-1582582622012-2f66da68d7e2?q=80&w=240&auto=format&fit=crop" alt="studio lamp" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="copy">
-              Not just furniture, but spaces that soften edges and create an effortless atmosphere at home.  
-              For enquiries, collaborations or catalogues, reach out below.
-            </div>
-          </div>
-
-          <div class="cta-row">
-            <!-- Only **working** actions -->
-            <a class="btn alt" href="mailto:info@casasoneh.com?subject=Enquiry%20from%20Website">Email us</a>
-            <a class="btn" href="tel:+61449637984">Call +61&nbsp;449&nbsp;637&nbsp;984</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1%20Castle%20Hill,%20Bicton%20WA%206157">Open map</a>
-          </div>
-        </div>
-
-        <div class="footer">
-          <span>© <span id="yr"></span> CASASONE</span>
-          <div class="contact">
-            <a href="mailto:info@casasoneh.com">info@casasoneh.com</a>
-            <a href="tel:+61449637984">+61 449 637 984</a>
-            <a target="_blank" rel="noopener" href="https://maps.google.com/?q=1%20Castle%20Hill,%20Bicton%20WA%206157">1 Castle Hill, Bicton WA 6157</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // Preloader: keep it very short for a refined feel
-    window.addEventListener('load', () => {
-      setTimeout(() => document.body.classList.add('ready'), 950);
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    });
-  </script>
 </body>
 </html>
