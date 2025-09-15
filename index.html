@@ -2,48 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CASASONEH</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('https://i.ibb.co/ZJgVt4C/background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #ffffff; /* پس‌زمینه سفید */
+      font-family: Arial, sans-serif;
     }
+
     h1 {
-      font-size: 80px;
-      font-weight: 900;
-      color: black;
-      letter-spacing: 2px;
+      font-size: 64px;
+      font-weight: bold;
+      color: #000000;
+      margin: 0;
     }
-    p {
+
+    .info {
       margin-top: 20px;
-      font-size: 18px;
-      color: #444;
       text-align: center;
+      font-size: 16px;
+      color: #333;
     }
-    a {
+
+    .info a {
       color: #000;
       text-decoration: none;
       font-weight: bold;
     }
-    a:hover {
+
+    .info a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>CASASONEH</h1>
-    <p>
-      <a href="mailto:info@casasoneh.com">info@casasoneh.com</a><br>
-      Perth, Australia
-    </p>
+  <h1>CASASONEH</h1>
+  <div class="info">
+    <a href="mailto:info@casasoneh.com">info@casasoneh.com</a><br>
+    Perth, Australia
   </div>
 </body>
 </html>
