@@ -12,12 +12,12 @@
 
   <style>
     :root{
-      /* سبز پس‌زمینه؛ اگر در style.css متغیر مشابهی داری، با همان یکی‌اش کن */
-      --bg:#1f3f39;           /* سبز تیره (همان حس صفحه اصلی) */
-      --ink:#f2f2f2;          /* متن روشن */
-      --muted:#cfd8d5;        /* متن کم‌رنگ */
-      --line:#e9ecef22;       /* خط‌های خیلی ملایم */
-      --accent:#ffffff;       /* دکمه روشن */
+      /* رنگ‌های تم */
+      --bg:#1f3f39;     /* سبز تیره مشابه صفحه اصلی */
+      --ink:#f2f2f2;    /* متن روشن */
+      --muted:#cfd8d5;  /* متن کم‌رنگ */
+      --line:#e9ecef22; /* خط‌های محو */
+      --accent:#ffffff; /* دکمه سفید */
     }
 
     html,body{height:100%}
@@ -30,7 +30,7 @@
       line-height:1.6;
     }
 
-    /* ناوبری بالا */
+    /* ناوبری */
     .nav{
       max-width:1200px;
       margin:0 auto;
@@ -59,7 +59,7 @@
     /* لِی‌اوت صفحه تماس */
     .contact-wrap{
       max-width:1200px;
-      margin:30px auto 80px;
+      margin:90px auto 80px;   /* فاصله از بالا بیشتر شد */
       padding:0 20px;
       display:grid;
       grid-template-columns: 1.05fr 1.35fr;
@@ -110,7 +110,7 @@
       width:100%;
       background:transparent;
       border:none;
-      border-bottom:1px solid #ffffff90; /* خط سفید ظریف مثل عکس */
+      border-bottom:1px solid #ffffff90;
       color:var(--ink);
       padding:10px 2px;
       font-size:1rem;
@@ -159,15 +159,12 @@
         <p><a href="mailto:info@casasoneh.com">info@casasoneh.com</a></p>
       </div>
 
-      <div class="block">
-        <h3>TEXT OR CALL</h3>
-        <p><a href="tel:+61400000000">+61 400 000 000</a></p>
-      </div>
+      <!-- بلاک تلفن حذف شد -->
 
       <div class="block">
         <h3>FOLLOW ME</h3>
         <div class="follow">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/amirsoneh.m?igsh=MTNpYWJwaDkxMXoyNw==" target="_blank" rel="noopener">Instagram</a>
           <a href="#" target="_blank" rel="noopener">Facebook</a>
           <a href="#" target="_blank" rel="noopener">Behance</a>
         </div>
@@ -178,9 +175,7 @@
     <section class="form">
       <h2>SEND A MESSAGE</h2>
 
-      <!-- روش ارسال: 
-           1) موقتی/ساده: mailto (کلاینت ایمیل کاربر باز می‌شود)
-           2) حرفه‌ای: Formspree یا Basin؛ فقط action را عوض کن -->
+      <!-- نسخه ساده (باز کردن ایمیل کلاینت) -->
       <form action="mailto:info@casasoneh.com" method="post" enctype="text/plain">
         <div class="row">
           <div>
@@ -211,7 +206,8 @@
           <button type="submit">SUBMIT</button>
         </div>
       </form>
-      <!-- اگر خواستی فرم حرفه‌ای باشد:
+
+      <!-- اگر فرم حرفه‌ای می‌خوای:
       <form action="https://formspree.io/f/XXXXXXXX" method="POST"> ... </form>
       -->
     </section>
