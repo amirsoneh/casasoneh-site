@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#1f3f39;      /* forest green */
+      --bg:#1f3f39;      /* forest green background */
       --white:#ffffff;   /* white */
       --gray:#b0b5b3;    /* soft gray */
     }
@@ -21,13 +21,13 @@
       align-items:center;
       justify-content:center;
       flex-direction:column;
-      gap:24px;
+      gap:16px;
+      text-align:center;
     }
     h1{
       font-size:clamp(44px,12vw,112px);
       font-weight:800;
       letter-spacing:.02em;
-      text-align:center;
     }
     .tagline{
       font-size:clamp(18px,4vw,32px);
@@ -37,6 +37,12 @@
     }
     .white{color:var(--white)}
     .gray{color:var(--gray)}
+    .slogan{
+      font-size:clamp(12px,2vw,16px);
+      font-weight:400;
+      color:var(--gray);
+      margin-top:8px;
+    }
   </style>
 </head>
 <body>
@@ -48,6 +54,6 @@
     <span class="gray">ne</span>
     <span class="gray">Home</span>
   </div>
+  <div class="slogan">Where your vision meets our creativity in architecture and interior design</div>
 </body>
 </html>
-
