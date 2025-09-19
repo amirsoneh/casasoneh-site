@@ -6,54 +6,61 @@
   <title>DEZOSONEH</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#1f3f39;      /* forest green background */
-      --white:#ffffff;   /* white */
-      --gray:#b0b5b3;    /* soft gray */
-    }
+    :root{ --bg:#1f3f39; --white:#ffffff; --gray:#b0b5b3; }
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--white);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      gap:16px;
-      text-align:center;
-    }
-    h1{
-      font-size:clamp(44px,12vw,112px);
-      font-weight:800;
-      letter-spacing:.02em;
-    }
-    .tagline{
-      font-size:clamp(18px,4vw,32px);
-      font-weight:700;
-      display:flex;
-      gap:8px;
-    }
-    .white{color:var(--white)}
-    .gray{color:var(--gray)}
-    .slogan{
-      font-size:clamp(12px,2vw,16px);
-      font-weight:400;
-      color:var(--gray);
-      margin-top:8px;
-    }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--white);display:flex;flex-direction:column}
+
+    /* Top toolbar */
+    header{position:sticky;top:0;background:var(--bg);}
+    .toolbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+    .brand a{color:var(--white);text-decoration:none;font-weight:800;letter-spacing:.05em}
+    nav ul{list-style:none;display:flex;gap:24px}
+    nav a{color:var(--white);text-decoration:none;font-weight:700}
+    nav a:hover{text-decoration:underline}
+
+    /* Hero */
+    .hero{min-height:calc(100vh - 120px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;padding:24px;text-align:center}
+    .hero h1{font-size:clamp(44px,12vw,112px);font-weight:800;letter-spacing:.02em}
+
+    /* Tagline with colored parts; keep words tight */
+    .tagline{display:flex;align-items:baseline;gap:20px;font-weight:800;font-size:clamp(22px,4.5vw,44px)}
+    .word{display:inline-flex; gap:0} /* no extra gap inside word */
+    .w{color:var(--white)}
+    .g{color:var(--gray)}
+
+    /* Slogan */
+    .slogan{font-size:clamp(12px,2vw,16px);color:var(--gray);margin-top:8px}
+
+    /* Footer */
+    footer{margin-top:auto;color:var(--gray);text-align:center;padding:18px 12px;border-top:1px solid rgba(255,255,255,.06)}
   </style>
 </head>
 <body>
-  <h1>DEZOSONEH</h1>
-  <div class="tagline">
-    <span class="white">De</span>
-    <span class="gray">sign</span>
-    <span class="white">Zo</span>
-    <span class="gray">ne</span>
-    <span class="gray">Home</span>
-  </div>
-  <div class="slogan">Where your vision meets our creativity in architecture and interior design</div>
+  <header>
+    <div class="toolbar">
+      <div class="brand"><a href="index.html">DEZOSONEH</a></div>
+      <nav>
+        <ul>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <h1>DEZOSONEH</h1>
+    <div class="tagline" aria-label="Design Zone Home">
+      <span class="word"><span class="w">De</span><span class="g">sign</span></span>
+      <span class="word"><span class="w">Zo</span><span class="g">ne</span></span>
+      <span class="g">Home</span>
+    </div>
+    <div class="slogan">Where your vision meets our creativity in architecture and interior design</div>
+  </main>
+
+  <footer>© <span id="y"></span> DEZOSONEH. All rights reserved.</footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
