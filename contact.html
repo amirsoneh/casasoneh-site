@@ -3,215 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — CASASONEH</title>
-
-  <!-- فونت‌ها -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- استایل اصلی پروژه اگر داری -->
-  <link rel="stylesheet" href="style.css">
-
+  <title>Contact — DEZOSONEH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      /* رنگ‌های تم */
-      --bg:#1f3f39;     /* سبز تیره مشابه صفحه اصلی */
-      --ink:#f2f2f2;    /* متن روشن */
-      --muted:#cfd8d5;  /* متن کم‌رنگ */
-      --line:#e9ecef22; /* خط‌های محو */
-      --accent:#ffffff; /* دکمه سفید */
-    }
+    :root { --bg:#1f3f39; --white:#ffffff; --gray:#b0b5b3; }
+    * { box-sizing:border-box; margin:0; padding:0 }
+    html,body { height:100% }
+    body { font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--white); display:flex; flex-direction:column }
 
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      -webkit-font-smoothing:antialiased;
-      line-height:1.6;
-    }
+    header { background:var(--bg) }
+    .toolbar { max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:30px 20px }
+    .brand a { color:var(--white); text-decoration:none; font-weight:800; letter-spacing:.05em }
+    nav ul { list-style:none; display:flex; gap:24px }
+    nav a { color:var(--white); text-decoration:none; font-weight:700 }
+    nav a:hover { text-decoration:underline }
 
-    /* ناوبری */
-    .nav{
-      max-width:1200px;
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:22px 20px;
-    }
-    .brand-link{
-      color:var(--ink);
-      text-decoration:none;
-      letter-spacing:.14em;
-      font-weight:600;
-    }
-    .links a{
-      color:var(--ink);
-      text-decoration:none;
-      margin-left:28px;
-      font-size:.95rem;
-      letter-spacing:.18em;
-      opacity:.9;
-    }
-    .links a.active{opacity:1;border-bottom:1px solid var(--ink)}
-    .links a:hover{opacity:1}
+    main { flex:1; max-width:900px; margin:auto; padding:120px 22px 60px; display:flex; flex-direction:column; gap:40px }
+    h1 { font-size:20px; font-weight:700; margin-bottom:20px }
 
-    /* لِی‌اوت صفحه تماس */
-    .contact-wrap{
-      max-width:1200px;
-      margin:120px auto 80px;   /* فاصله از بالا بیشتر شد */
-      padding:0 20px;
-      display:grid;
-      grid-template-columns: 1.05fr 1.35fr;
-      gap:64px;
-    }
+    .contact-card { display:flex; justify-content:space-between; gap:40px; padding:30px; border:1px solid rgba(255,255,255,0.2); border-radius:6px; background:transparent }
 
-    /* ستون چپ (اطلاعات) */
-    .info h3{
-      font-family:"Cormorant Garamond", serif;
-      font-weight:600;
-      letter-spacing:.28em;
-      margin:0 0 10px;
-      font-size:1.4rem;
-    }
-    .info p, .info a{
-      color:var(--muted);
-      text-decoration:none;
-      font-size:1.05rem;
-    }
-    .info a:hover{color:var(--ink)}
-    .block{border-bottom:1px solid var(--line); padding:28px 0}
-    .block:first-child{padding-top:0}
-    .follow a{display:block; margin:.35rem 0}
+    .form-section, .info-section { flex:1; min-width:250px }
 
-    /* فرم راست */
-    .form h2{
-      font-family:"Cormorant Garamond", serif;
-      font-weight:600;
-      letter-spacing:.28em;
-      margin:0 0 20px;
-      font-size:1.4rem;
-    }
-    form{width:100%}
-    .row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-bottom:18px;
-    }
-    label{
-      display:block;
-      font-size:.95rem;
-      color:var(--muted);
-      margin-bottom:6px;
-      letter-spacing:.08em;
-    }
-    input, textarea{
-      width:100%;
-      background:transparent;
-      border:none;
-      border-bottom:1px solid #ffffff90;
-      color:var(--ink);
-      padding:10px 2px;
-      font-size:1rem;
-      outline:none;
-    }
-    input::placeholder, textarea::placeholder{color:#ffffff80}
-    textarea{min-height:140px; resize:vertical}
-    .submit-wrap{margin-top:26px}
-    button{
-      width:100%;
-      background:var(--accent);
-      color:#333;
-      border:none;
-      padding:16px 20px;
-      letter-spacing:.25em;
-      font-weight:600;
-      cursor:pointer;
-    }
-    button:hover{filter:brightness(0.96)}
+    form { display:flex; flex-direction:column; gap:14px }
+    input, textarea { padding:10px; border:none; border-bottom:1px solid var(--gray); background:transparent; color:var(--white); font-family:inherit; font-size:.9rem }
+    input:focus, textarea:focus { outline:none; border-color:var(--white) }
+    textarea { min-height:70px; resize:vertical }
+    button { background:var(--white); color:var(--bg); padding:10px; font-weight:600; border:none; border-radius:20px; cursor:pointer; font-size:.9rem }
+    button:hover { opacity:0.9 }
 
-    /* ریسپانسیو */
-    @media (max-width: 880px){
-      .contact-wrap{grid-template-columns:1fr; gap:40px}
-      .row{grid-template-columns:1fr}
-      .links a{margin-left:18px}
-    }
+    .info-section h2 { font-size:1rem; font-weight:600; margin-bottom:6px }
+    .info-section p { color:var(--gray); font-size:.9rem; margin-bottom:16px }
+    .social { display:flex; gap:16px; margin-top:10px }
+    .social a { color:var(--gray); text-decoration:none; font-size:.9rem }
+    .social a:hover { color:var(--white) }
+
+    footer { color:var(--gray); text-align:center; padding:18px 12px; border-top:1px solid rgba(255,255,255,.06); margin-top:40px; width:100% }
   </style>
 </head>
 <body>
-
-  <!-- ناوبری -->
-  <nav class="nav">
-    <div class="brand"><a class="brand-link" href="index.html">CASASONEH</a></div>
-    <div class="links">
-      <a href="about.html">ABOUT</a>
-      <a class="active" href="contact.html">CONTACT</a>
+  <header>
+    <div class="toolbar">
+      <div class="brand"><a href="index.html">DEZOSONEH</a></div>
+      <nav>
+        <ul>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main class="contact-wrap">
-
-    <!-- ستون اطلاعات -->
-    <section class="info">
-      <div class="block">
-        <h3>DROP ME A LINE</h3>
-        <p><a href="mailto:info@casasoneh.com">info@casasoneh.com</a></p>
+  <main>
+    <h1>Contact</h1>
+    <div class="contact-card">
+      <div class="form-section">
+        <form>
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="E-mail">
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Contact Us</button>
+        </form>
       </div>
 
-      <!-- بلاک تلفن حذف شد -->
+      <div class="info-section">
+        <h2>Contact</h2>
+        <p>info@dezosoneh.com</p>
 
-      <div class="block">
-        <h3>FOLLOW ME</h3>
-        <div class="follow">
-          <a href="https://www.instagram.com/amirsoneh.m?igsh=MTNpYWJwaDkxMXoyNw==" target="_blank" rel="noopener">Instagram</a>
-          <a href="#" target="_blank" rel="noopener">Facebook</a>
-          <a href="#" target="_blank" rel="noopener">Behance</a>
+        <h2>Based in</h2>
+        <p>Perth, Australia</p>
+
+        <div class="social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">LinkedIn</a>
         </div>
       </div>
-    </section>
-
-    <!-- ستون فرم -->
-    <section class="form">
-      <h2>SEND A MESSAGE</h2>
-
-      <!-- نسخه ساده (باز کردن ایمیل کلاینت) -->
-      <form action="mailto:info@casasoneh.com" method="post" enctype="text/plain">
-        <div class="row">
-          <div>
-            <label for="first">First name *</label>
-            <input id="first" name="first_name" type="text" required>
-          </div>
-          <div>
-            <label for="last">Last name *</label>
-            <input id="last" name="last_name" type="text" required>
-          </div>
-        </div>
-
-        <div class="row" style="grid-template-columns:1fr;">
-          <div>
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-        </div>
-
-        <div class="row" style="grid-template-columns:1fr;">
-          <div>
-            <label for="msg">Type your message here…</label>
-            <textarea id="msg" name="message" placeholder=""></textarea>
-          </div>
-        </div>
-
-        <div class="submit-wrap">
-          <button type="submit">SUBMIT</button>
-        </div>
-      </form>
-
-      <!-- اگر فرم حرفه‌ای می‌خوای:
-      <form action="https://formspree.io/f/XXXXXXXX" method="POST"> ... </form>
-      -->
-    </section>
+    </div>
   </main>
 
+  <footer>© <span id="y"></span> DEZOSONEH. All rights reserved.</footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
